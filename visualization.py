@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
+import os
 
 # Define the system matrix A
 def getA(N, speed_coeff):
@@ -21,46 +22,54 @@ def dx_dt(A, x):
     return np.dot(A,x)
 
 # Parameters for the system
-N = 5
-dt = 0.01  # Time step
+N = 8
+dt = 0.01
 
-x = np.random.random((N, 2))  # Initial random positions of points
-A = getA(N, speed_coeff=10)  # Speed coefficient for the system
+x = np.random.random((N, 2))
+x[0,0] = x[0,0]/2
+x[-1,0] = x[-1,0]/2 + 0.5
+A = getA(N, speed_coeff=10)
+
+final_poses = np.asarray([x[0] + (i+1)/(N-1)*(x[-1] - x[0]) for i in range(N-2)])
 
 # Initialize figure and axis for animation
 fig, ax = plt.subplots()
-scat = ax.scatter(x[:, 0], x[:, 1], s=50)  # Initial scatter plot with marker size
-line, = ax.plot([], [], 'r--', lw=2)  # Dashed line between first and last points
-traces = [ax.plot([], [], 'b-', lw=1)[0] for _ in range(N)]  # Traces for each point
 
-ax.set_xlim(0, 1)  # Set limits for the x-axis
-ax.set_ylim(0, 1)  # Set limits for the y-axis
+size = 100
+colors = ['yellow'] + ['lightgreen'] * (N - 2) + ['yellow']
+sizes = [2*size] + [size] * (N - 2) + [2*size]
 
-# To store past positions for traces
+ax.plot([x[0, 0], x[-1, 0]], [x[0, 1], x[-1, 1]], 'r--', lw=2, zorder=0)
+ax.scatter(final_poses[:,0],final_poses[:,1], color='k', s=size/4, alpha=0.5, zorder=1)
+scat = ax.scatter(x[:, 0], x[:, 1], color=colors, s=sizes, zorder=2)
+traces = [ax.plot([], [], 'b-', lw=1, zorder=1)[0] for _ in range(N)]
+
+ax.set_title(f"Simulation Time: 0.00 seconds")
+ax.set_xlim(0, 1)
+ax.set_ylim(0, 1)
+fig.tight_layout()
+
 trace_data = [np.empty((0, 2)) for _ in range(N)]
-
+text_labels = [ax.text(x[i, 0], x[i, 1], str(i), fontsize=12, ha='center', va='center', zorder=3) for i in range(N)]
 
 # Update function for animation
 def update(frame):
-    global x  # Ensure we modify the global variable x
+    global x
     x = x + dx_dt(A, x) * dt
     scat.set_offsets(x)
-    
-    # Set special properties for the first and last points (red color and larger size)
-    colors = ['red'] + ['blue'] * (N - 2) + ['red']
-    sizes = [100] + [50] * (N - 2) + [100]
-    scat.set_color(colors)
-    scat.set_sizes(sizes)
-    
-    # Update dashed line between first and last points
-    line.set_data([x[0, 0], x[-1, 0]], [x[0, 1], x[-1, 1]])
-    
-    # Update traces for each point (except first and last)
+
     for i in range(N):
-        trace_data[i] = np.vstack([trace_data[i], x[i]])  # Add new position to the trace
-        traces[i].set_data(trace_data[i][:, 0], trace_data[i][:, 1])  # Update trace line
+        # cur_trace = traces[i].get_data()
+        trace_data[i] = np.vstack([trace_data[i], x[i]])
+        traces[i].set_data(trace_data[i][:, 0], trace_data[i][:, 1])
     
-    return scat, line, *traces
+    for i, text in enumerate(text_labels):
+        text.set_position((x[i, 0], x[i, 1]))
+
+    ax.set_title(f"Simulation Time: {frame * dt:.2f} seconds")
+    return scat, *text_labels, *traces
 
 ani = FuncAnimation(fig, update, frames=np.arange(0, 100), interval=100, blit=True)
-plt.show()
+
+num = len([file for file in os.listdir('.') if file.lower().endswith('.gif')])
+ani.save(f'simulation{num}.gif', writer='pillow', fps=10)
