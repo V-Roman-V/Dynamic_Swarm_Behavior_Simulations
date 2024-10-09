@@ -1,6 +1,10 @@
 # Skoltech_Math_for_Engineers_team
 Group repository for assignments and project work
 
+**Students:**
+1. Roman Voronov (Roman.Voronov@skoltech.ru), Skoltech, 2024
+1. Artem Voronov (Artem.Voronov@skoltech.ru), Skoltech, 2024
+1. Lev Ladanov (Lev.Ladanov@skoltech.ru), Skoltech, 2024
 
 ## Project week 1 simulation
 ![simulation](<Project week 1/simulation0.gif>)
