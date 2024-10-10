@@ -43,3 +43,31 @@ The first and last rows of the matrix $A$ consist of zeros, ensuring that the bo
    - **Sparse** (mostly zeros).
    - **Negative definite** (all eigenvalues are negative).
    - **Real eigenvalues**.
+
+### Finding maximum $\Delta t$:
+
+1. System could be descretize using Euler method:
+$$x_{i+1} = x_i + \Delta t \cdot \dot{x} \Leftrightarrow \\
+  x_{i+1} = x_i + \Delta t \cdot A x_i \Leftrightarrow \\
+  x_{i+1} = (I + \Delta t A) x_i \Leftrightarrow \\
+  x_{i+1} = Bx_i \Leftrightarrow \\
+  $$
+
+
+2. System is stable if $\forall |\lambda_i^B| < 1$
+3. New eigenvalues equal: $\lambda_i^B = 1 + \Delta t \cdot \lambda_i^A$
+4. Since $\forall \lambda_i^A$ are negative, system is stable as long as $1 + \Delta t \cdot \lambda_{min}^A > -1$
+5. Eigenvalues of matrix A could be described by formula: $\lambda_i^A = -2 + 2\cos{(\frac{n\pi}{n + 1})} \Rightarrow \lambda_{min}^A \ge -4$
+6. $\Delta t \le \frac{-2}{\lambda_{min}^A} \Rightarrow \Delta t \le 0.5$
+
+So the $\Delta t$ should be lower then 0.5 to make system stable.
+
+### Let's test $\Delta t$:
+
+Simultation with $\Delta t = 0.49$:
+![alt text](<Project week 1/simulation_dt49.gif>)
+
+Simultation with $\Delta t = 0.55$:
+![alt text](<Project week 1/simulation_dt55.gif>)
+
+So the estimation of maximum $\Delta t$ is very good.
