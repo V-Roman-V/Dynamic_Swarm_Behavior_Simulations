@@ -7,7 +7,7 @@ Group repository for assignments and project work
 1. Lev Ladanov (Lev.Ladanov@skoltech.ru), Skoltech, 2024
 
 ## Project week 1 simulation
-![simulation](<Project week 1/simulation0.gif>)
+![simulation](<Project_week_1/simulation0.gif>)
 
 ### description
 
@@ -65,9 +65,9 @@ So the $\Delta t$ should be lower then 0.5 to make system stable.
 ### Let's test $\Delta t$:
 
 Simultation with $\Delta t = 0.49$:
-![alt text](<Project week 1/simulation_dt49.gif>)
+![alt text](<Project_week_1/simulation_dt49.gif>)
 
 Simultation with $\Delta t = 0.55$:
-![alt text](<Project week 1/simulation_dt55.gif>)
+![alt text](<Project_week_1/simulation_dt55.gif>)
 
 So the estimation of maximum $\Delta t$ is very good.
