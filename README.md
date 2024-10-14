@@ -22,7 +22,7 @@ where $x$ is a vector representing the positions of points in a plane, with each
 To model the behavior in which the $i$-th agent tends to position itself at the midpoint of the segment formed by the $(i-1)$-th and $(i+1)$-th points, we define the matrix $A$ as follows:
 
 $$
-A = 
+A = \frac12
 \begin{bmatrix}
 0 &  0 &  0 & \cdots & 0 & 0 & 0 \\
 1 & -2 &  1 & \cdots & 0 & 0 & 0 \\
@@ -71,3 +71,32 @@ Simultation with $\Delta t = 0.55$:
 ![alt text](<Project_week_1/simulation_dt55.gif>)
 
 So the estimation of maximum $\Delta t$ is very good.
+
+---
+
+## Project week 2
+
+Now we will consider second order system, to control acceleration instead of velocity.
+
+We consider models of the agents in the form of the second-order integrators
+$$
+\ddot{x}_i = u_i, \quad i = 0,1, 2, \dots, n-1
+$$
+and take the control law as
+$$
+\begin{aligned}
+u_0 &= 0, \\
+u_1 &= \frac{x_2 + x_0}{2} - x_1 - \alpha \dot{x}_1, \\
+u_i &= \frac{x_{i+1} + x_{i-1}}{2} - x_i - \alpha \dot{x}_i, \quad i = 1, \dots, n-2, \\
+u_{n-2} &= \frac{x_{n-1} + x_{n-3}}{2} - x_{n-2} - \alpha \dot{x}_{n-2}, \\
+u_{n-1} &= 0
+\end{aligned}
+$$
+
+
+### Visualization of this system:
+
+![alt text](Project_week_2/simulation0.gif)
+
+### Description:
+

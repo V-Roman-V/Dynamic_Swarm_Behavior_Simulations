@@ -1,11 +1,12 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
+from modules.Isystem import SystemInterface
 
 class SimulationAnimation:
-    def __init__(self, system, dt):
+    def __init__(self, system: SystemInterface, dt):
         self.system = system
-        self.N = system.N
+        self.N = system.get_x().shape[0]
         self.dt = dt
         self.trace_data = [np.empty((0, 2)) for _ in range(self.N)]
         self.final_poses = system.get_final_poses()
