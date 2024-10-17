@@ -85,15 +85,11 @@ $$
 
 and take the control law as:
 
-$$
-\begin{aligned}
-u_0 &= 0, \\
-u_1 &= \frac{x_2 + x_0}{2} - x_1 - \alpha \dot{x}_1, \\
-u_i &= \frac{x_{i+1} + x_{i-1}}{2} - x_i - \alpha \dot{x}_i, \quad i = 1, \dots, n-2, \\
-u_{n-2} &= \frac{x_{n-1} + x_{n-3}}{2} - x_{n-2} - \alpha \dot{x}_{n-2}, \\
-u_{n-1} &= 0
-\end{aligned}
-$$
+$u_0 = 0,$  
+$u_1 = \frac{x_2 + x_0}{2} - x_1 - \alpha \dot{x}_1,$  
+$u_i = \frac{x_{i+1} + x_{i-1}}{2} - x_i - \alpha \dot{x}_i, \quad i = 1, \dots, n-2,$  
+$u_{n-2} = \frac{x_{n-1} + x_{n-3}}{2} - x_{n-2} - \alpha \dot{x}_{n-2},$  
+$u_{n-1} = 0$
 
 ### Visualization of this system:
 
@@ -101,7 +97,7 @@ $$
 
 ### Description:
 
-We can rearrange equation (5) into matrix form:
+We can rearrange equation control law into matrix form:
 
 $$
 u = Ax - \alpha B v
