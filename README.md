@@ -114,4 +114,45 @@ We can simulate the system using Euler method by updating state at each step:
   $v_{k+1} = v_k + \Delta t \cdot u_k\left(x_k, v_k\right)$  
   $x_{k+1} = x_k + \Delta t \cdot v_k$
 
+---
 
+# Added Van Loan schemes
+
+## Ellipse
+
+**System:**
+$$x_{i+1} = \frac{Mx_i}{|Mx_i|} \; ; x_{i+1}= x_{i+1} - \text{mean}(x_{i+1})$$
+
+$$
+M = \frac12
+\begin{bmatrix}
+1 & 1 &  &  &  \\
+& 1 & 1  &  &  \\
+& & \ddots & \ddots  &  &  \\
+& & & 1 & 1 \\
+1 & & & & 1
+
+\end{bmatrix}
+$$
+
+![alt text](Van_Loan_schemes/Ellipse/simulation2.gif)
+
+## Segment
+
+**System:**
+
+$$x_{i+1} = Mx_i$$
+
+$$
+M =
+\begin{bmatrix}
+1 & 0 &  &  &  \\
+0.5 & 0 & 0.5  &  &  \\
+& \ddots& \ddots & \ddots  &  &  \\
+& & 0.5& 0 & 0.5 \\
+& & & 0 & 1
+
+\end{bmatrix}
+$$
+
+![alt text](Van_Loan_schemes/Sector/simulation0.gif)

@@ -1,6 +1,6 @@
 import os
 from modules.animation import SimulationAnimation
-from Van_Loan_schemes.Sector.system import System
+from Van_Loan_schemes.Segment.system import System
 
 def get_next_filename(folder='',prefix='simulation', ext='.gif'):
     num = len([file for file in os.listdir(folder) if file.lower().endswith(ext)])
@@ -16,7 +16,7 @@ def main():
     animation = SimulationAnimation(system, dt, limits=(-1,1))
 
     ani = animation.run_animation(frames=100, interval=100)
-    ani.save(get_next_filename(folder='Van_Loan_schemes/Sector'), writer='pillow', fps=10)
+    ani.save(get_next_filename(folder='Van_Loan_schemes/Segment'), writer='pillow', fps=10)
 
 if __name__ == "__main__":
     main()
