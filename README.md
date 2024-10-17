@@ -107,7 +107,7 @@ where:
 - matrix $A$ is taken from week 1,
 - vector $x$ is a position vector: $[x_0, x_1, \dots, x_{n-1}]$,
 - matrix $B$ is an identity matrix with zeros on the first and last rows,
-- vector $v$ is a velocity vector: $[\dot{x}_0, \dot{x}_1, \dots, \dot{x}_{n-1}]$.
+- vector $v$ is a velocity vector: $[\dot x_0, \dot x_1, \dots, \dot x_{n-1}]$.
 
 We can simulate the system using Euler's method by updating the state at each step:
 
