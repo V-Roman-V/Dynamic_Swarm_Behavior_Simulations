@@ -85,56 +85,11 @@ $$
 
 and take the control law as:
 
-$
-\begin{matrix}
- u_0\\
- u_1\\
- u_i\\
- u_{n-2}\\
- u_{n-1} \\
-\end{matrix}
-\begin{matrix}
- =\\
- =\\
- =\\
- =\\
- =\\
-\end{matrix}
-\begin{matrix}
-0\\
-\frac{x_2 + x_0}{2}\\
-\frac{x_{i+1} + x_{i-1}}{2}\\
-\frac{x_{n-1} + x_{n-3}}{2}\\
-0
-\end{matrix}
-\begin{matrix}
-\;\\
--\;x_1\\
--\;x_i\\
--x_{n-2}\\
-\;
-\end{matrix}
-\begin{matrix}
-\;\\
--\;\alpha \dot{x}_1\\
--\;\alpha \dot{x}_i\\
--\alpha \dot{x}_{n-2}\\
-\;
-\end{matrix}
-\begin{matrix}
-\;\\
-\;\\
-\quad i = 1, \dots, n-2\\
-\;\\
-\;
-\end{matrix}
-$
-<!-- 
-$u_0 = 0,$  
-$u_1 = \frac{x_2 + x_0}{2} - x_1 - \alpha \dot{x}_1,$  
-$u_i = \frac{x_{i+1} + x_{i-1}}{2} - x_i - \alpha \dot{x}_i, \quad i = 1, \dots, n-2,$  
-$u_{n-2} = \frac{x_{n-1} + x_{n-3}}{2} - x_{n-2} - \alpha \dot{x}_{n-2},$  
-$u_{n-1} = 0$ -->
+1. $u_0 = 0,$
+2. $u_1 = \frac{x_2 + x_0}{2} - x_1 - \alpha \dot{x}_1,$  
+3. $u_i = \frac{x_{i+1} + x_{i-1}}{2} - x_i - \alpha \dot{x}_i, \quad i = 1, \dots, n-2,$  
+4. $u_{n-2} = \frac{x_{n-1} + x_{n-3}}{2} - x_{n-2} - \alpha \dot{x}_{n-2},$  
+5. $u_{n-1} = 0$
 
 ### Visualization of this system:
 
