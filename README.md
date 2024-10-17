@@ -14,7 +14,7 @@ Group repository for assignments and project work
 This system can be described by the following differential equation:
 
 $$
-\dot{x} = A x \tag{1}
+\dot{x} = A x
 $$
 
 where $x$ is a vector representing the positions of points in a plane, with each element $x_i = [X_i, Y_i]$ representing the coordinates of the $i$-th point.
@@ -31,7 +31,7 @@ A = \frac{1}{2}
 0 &  0 &  0 & \cdots & -2 & 1 & 0 \\
 0 &  0 &  0 & \cdots & 1 & -2 & 1 \\
 0 &  0 &  0 & \cdots & 0 & 0 & 0 \\
-\end{bmatrix} \tag{2}
+\end{bmatrix}
 $$
 
 In this matrix, the main diagonal contains the value $-2$, and the first sub-diagonal (just below the main diagonal) and first super-diagonal (just above the main diagonal) contain the value $1$. These entries enforce the rule that each agent moves towards the average position of its two immediate neighbors.
@@ -50,7 +50,7 @@ The first and last rows of the matrix $A$ consist of zeros, ensuring that the bo
 $$x_{i+1} = x_i + \Delta t \cdot \dot{x} \Leftrightarrow \\
   x_{i+1} = x_i + \Delta t \cdot A x_i \Leftrightarrow \\
   x_{i+1} = (I + \Delta t A) x_i \Leftrightarrow \\
-  x_{i+1} = Bx_i \tag{3}
+  x_{i+1} = Bx_i
   $$
 
 2. The system is stable if $\forall |\lambda_i^B| < 1$.
@@ -80,7 +80,7 @@ Now we will consider a second-order system, to control acceleration instead of v
 We consider models of the agents in the form of second-order integrators:
 
 $$
-\ddot{x}_i = u_i, \quad i = 0,1,2,\dots,n-1 \tag{4}
+\ddot{x}_i = u_i, \quad i = 0,1,2,\dots,n-1
 $$
 
 and take the control law as:
@@ -92,7 +92,7 @@ u_1 &= \frac{x_2 + x_0}{2} - x_1 - \alpha \dot{x}_1, \\
 u_i &= \frac{x_{i+1} + x_{i-1}}{2} - x_i - \alpha \dot{x}_i, \quad i = 1, \dots, n-2, \\
 u_{n-2} &= \frac{x_{n-1} + x_{n-3}}{2} - x_{n-2} - \alpha \dot{x}_{n-2}, \\
 u_{n-1} &= 0
-\end{aligned} \tag{5}
+\end{aligned}
 $$
 
 ### Visualization of this system:
@@ -108,7 +108,7 @@ u = Ax - \alpha B v
 $$
 
 where:
-- matrix $A$ is taken from eq. (2),
+- matrix $A$ is taken from week 1,
 - vector $x$ is a position vector: $[x_0, x_1, \dots, x_{n-1}]$,
 - matrix $B$ is an identity matrix with zeros on the first and last rows,
 - vector $v$ is a velocity vector: $[\dot{x}_0, \dot{x}_1, \dots, \dot{x}_{n-1}]$.
@@ -132,7 +132,7 @@ $$
 **System:**
 
 $$
-x_{i+1} = \frac{Mx_i}{|Mx_i|}, \quad x_{i+1} = x_{i+1} - \text{mean}(x_{i+1}) \tag{6}
+x_{i+1} = \frac{Mx_i}{|Mx_i|}, \quad x_{i+1} = x_{i+1} - \text{mean}(x_{i+1})
 $$
 
 $$
@@ -153,7 +153,7 @@ $$
 **System:**
 
 $$
-x_{i+1} = Mx_i \tag{7}
+x_{i+1} = Mx_i
 $$
 
 $$
@@ -167,4 +167,4 @@ M =
 \end{bmatrix}
 $$
 
-![alt text](Van_Loan_schemes/Sector/simulation0.gif)
+![alt text](Van_Loan_schemes/Segment/simulation0.gif)
