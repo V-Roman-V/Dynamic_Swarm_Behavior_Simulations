@@ -164,3 +164,33 @@ M =
 $$
 
 ![alt text](Van_Loan_schemes/Segment/simulation0.gif)
+
+
+## Circle
+
+**System:**
+
+$$
+\theta_{i+1} = M\theta_i \\
+\begin{bmatrix}
+x_i \\
+y_i
+\end{bmatrix} = 
+R * \begin{bmatrix}
+\cos(\theta_i) \\z
+\sin(\theta_i)
+\end{bmatrix}
+$$
+
+$$
+M =
+\begin{bmatrix}
+1   & 0   &   &   &   \\
+0.5 & 0   & 0.5  &   &   \\
+    & \ddots & \ddots & \ddots  &   \\
+    &   & 0.5 & 0 & 0.5 \\
+    &   &    & 0 & 1
+\end{bmatrix}
+$$
+
+![alt text](Van_Loan_schemes/Circle/simulation0.gif)

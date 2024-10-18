@@ -4,10 +4,11 @@ from matplotlib.animation import FuncAnimation
 from modules.Isystem import SystemInterface
 
 class SimulationAnimation:
-    def __init__(self, system: SystemInterface, dt, limits=(0,1), showLines=True):
+    def __init__(self, system: SystemInterface, dt, limits=(0,1), showLines=True, squareAxis=False):
         self.system = system
         self.limits = limits
         self.showLines = showLines
+        self.squareAxis = squareAxis
         self.N = system.get_x().shape[0]
         self.dt = dt
         self.trace_data = [np.empty((0, 2)) for _ in range(self.N)]
@@ -32,6 +33,8 @@ class SimulationAnimation:
         self.ax.set_title(f"Simulation Time: 0.00 seconds")
         self.ax.set_xlim(self.limits)
         self.ax.set_ylim(self.limits)
+        if self.squareAxis:
+            self.ax.set_aspect('equal', adjustable='box')
         self.fig.tight_layout()
 
         return scat, traces, text_labels
