@@ -193,4 +193,7 @@ M =
 \end{bmatrix}
 $$
 
+**Initial State:** $\theta$ for first and last point should be fixed at point $0$ and $2\pi$
+
+
 ![alt text](Van_Loan_schemes/Circle/simulation0.gif)
