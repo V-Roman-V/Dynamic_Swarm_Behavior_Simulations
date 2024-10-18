@@ -11,9 +11,10 @@ def main():
     N = 10
     R = 0.8
     dt = 0.1
+    speed = 1 # rad/s
 
     # Initialize the system
-    system = System(N, R)
+    system = System(N, R, movement_speed= speed)
     animation = SimulationAnimation(system, dt, limits=(-1,1), showLines=False, squareAxis=True)
 
     ani = animation.run_animation(frames=100, interval=100)

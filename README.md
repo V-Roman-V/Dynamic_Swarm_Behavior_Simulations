@@ -149,7 +149,7 @@ $$
 **System:**
 
 $$
-x_{i+1} = Mx_i
+x_{i+1} = Mx_i + \alpha \omega
 $$
 
 $$
@@ -163,6 +163,9 @@ M =
 \end{bmatrix}
 $$
 
+$$
+\alpha \text{ - movements speed }\frac{rad}{s}
+$$
 ![alt text](Van_Loan_schemes/Segment/simulation0.gif)
 
 
@@ -197,3 +200,4 @@ $$
 
 
 ![alt text](Van_Loan_schemes/Circle/simulation0.gif)
+![alt text](Van_Loan_schemes/Circle/simulation1.gif)

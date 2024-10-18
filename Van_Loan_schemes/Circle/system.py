@@ -2,9 +2,10 @@ from modules.Isystem import SystemInterface
 import numpy as np
 
 class System(SystemInterface):
-    def __init__(self, N, R):
+    def __init__(self, N, R, movement_speed=0):
         self.N = N
         self.radius = R
+        self.movement_speed = movement_speed
         self.theta = np.random.random(N) * 2*np.pi
         self.theta[0] = 0
         self.theta[-1] = 2*np.pi
@@ -23,7 +24,7 @@ class System(SystemInterface):
 
     def update(self, dt):
         """Update the system state by a time step dt."""
-        self.theta = self.M @ self.theta
+        self.theta = self.M @ self.theta + np.ones(self.N) * self.movement_speed * dt
 
     def get_x(self):
         """Get the current state x of the system."""
