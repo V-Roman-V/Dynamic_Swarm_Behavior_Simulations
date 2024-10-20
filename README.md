@@ -166,6 +166,7 @@ $$
 $$
 \alpha \text{ - movements speed }\frac{rad}{s}
 $$
+
 ![alt text](Van_Loan_schemes/Segment/simulation0.gif)
 
 
