@@ -180,7 +180,7 @@ x_i \\
 y_i
 \end{bmatrix} = 
 R * \begin{bmatrix}
-\cos(\theta_i) \\z
+\cos(\theta_i) \\
 \sin(\theta_i)
 \end{bmatrix}
 $$
