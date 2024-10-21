@@ -142,14 +142,14 @@ M = \frac{1}{2}
 \end{bmatrix}
 $$
 
-![alt text](Van_Loan_schemes/Ellipse/simulation2.gif)
+![alt text](Van_Loan_schemes/Ellipse/simulation3.gif)
 
 ## Segment
 
 **System:**
 
 $$
-x_{i+1} = Mx_i + \alpha \omega
+x_{i+1} = Mx_i 
 $$
 
 $$
@@ -163,10 +163,6 @@ M =
 \end{bmatrix}
 $$
 
-$$
-\alpha \text{ - movements speed }\frac{rad}{s}
-$$
-
 ![alt text](Van_Loan_schemes/Segment/simulation0.gif)
 
 
@@ -175,7 +171,7 @@ $$
 **System:**
 
 $$
-\theta_{i+1} = M\theta_i \\
+\theta_{i+1} = M\theta_i + \alpha \omega\\
 \begin{bmatrix}
 x_i \\
 y_i
@@ -195,6 +191,10 @@ M =
     &   & 0.5 & 0 & 0.5 \\
     &   &    & 0 & 1
 \end{bmatrix}
+$$
+
+$$
+\alpha \text{ - movements speed }\frac{rad}{s}
 $$
 
 **Initial State:** $\theta$ for first and last point should be fixed at point $0$ and $2\pi$

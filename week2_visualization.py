@@ -8,9 +8,9 @@ def get_next_filename(folder='',prefix='simulation', ext='.gif'):
 
 def main():
     # Configuration
-    N = 8
+    N = 15
     dt = 0.12
-    alpha = 0.9  # Damping factor
+    alpha = 0.5  # Damping factor
 
     # Initialize the system
     system = System(N, alpha)
