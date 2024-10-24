@@ -30,7 +30,7 @@ class SimulationAnimation:
         traces = [self.ax.plot([], [], 'b-', lw=1, zorder=1, alpha=0.5)[0] for _ in range(self.N)]
         text_labels = [self.ax.text(x[i, 0], x[i, 1], str(i), fontsize=12, ha='center', va='center', zorder=3) for i in range(self.N)]
         
-        self.ax.set_title(f"Simulation Time: 0.00 seconds")
+        self.ax.set_title("Simulation Time: 0.00 seconds")
         self.ax.set_xlim(self.limits)
         self.ax.set_ylim(self.limits)
         if self.squareAxis:

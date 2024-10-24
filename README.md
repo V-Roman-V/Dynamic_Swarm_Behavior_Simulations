@@ -202,3 +202,66 @@ $$
 
 ![alt text](Van_Loan_schemes/Circle/simulation0.gif)
 ![alt text](Van_Loan_schemes/Circle/simulation1.gif)
+
+
+## Flocking algorithm
+
+### 1. Agents' Dynamics
+
+Each agent $ i $ is characterized by its position $ q_i \in \mathbb{R}^2 $ and velocity $ p_i \in \mathbb{R}^2 $. The dynamics of each agent are governed by:
+
+$$
+\ddot{q}_i = u_i
+$$
+
+
+where $ u_i $ is the control input (acceleration) applied to agent $ i $.
+
+---
+
+### 2. Control Law for Algorithm 1
+
+In **Algorithm 1**, the control input $ u_i^\alpha $ consists of two main components:
+
+- **Gradient-Based Control**: Encourages agents to maintain a desired distance from their neighbors.
+- **Velocity Matching (Consensus)**: Ensures agents align their velocities with their neighbors.
+
+The control law is:
+
+$$
+u_i^\alpha = \underbrace{\sum_{j \in \mathcal{N}_i} \phi_{\alpha}\left( \| q_j - q_i \|_\sigma \right) n_{ij}}_{\text{Gradient-Based Term}} + \underbrace{\sum_{j \in \mathcal{N}_i} a_{ij}(q)(p_j - p_i)}_{\text{Consensus Term}}
+$$
+
+Where:
+
+- $ \mathcal{N}_i $ is the set of neighbors of agent $ i $,
+- $ \phi_\alpha(z) $ is the **action function** governing the interaction forces,
+- $ \| \cdot \|_\sigma $ is the **σ-norm** (smooth distance function),
+- $ n_{ij} $ is the normalized direction vector between agents $ i $ and $ j $,
+- $ a_{ij}(q) $ is the adjacency element defining interaction weights.
+
+![alt text](Project_week_3/algorithm1_good0.gif)
+
+---
+
+### 3. Control Law for Algorithm 2
+
+In **Algorithm 2**, an additional **navigational feedback** term $ u_i^\gamma $ is included to represent a group objective, such as moving toward a target destination. The control law becomes:
+
+$$
+u_i = u_i^\alpha + u_i^\gamma
+$$
+
+Where:
+
+$$
+u_i^\gamma = -c_1 (q_i - q_r) - c_2 (p_i - p_r)
+$$
+
+- $ q_r $ and $ p_r $ are the reference position and velocity of the **γ-agent** (representing the group objective),
+- $ c_1, c_2 > 0 $ are constants that determine the strength of the feedback.
+
+![alt text](Project_week_3/algorithm2_good2.gif)
+
+---
+
