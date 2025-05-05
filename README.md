@@ -1,4 +1,4 @@
-# Skoltech_Math_for_Engineers_team
+# Dynamic_Swarm_Behavior_Simulations  
 Group repository for assignments and project work
 
 **Students:**
@@ -17,7 +17,7 @@ $$
 \dot{x} = A x
 $$
 
-where $x$ is a vector representing the positions of points in a plane, with each element $x_i = [X_i, Y_i]$ representing the coordinates of the $i$-th point.
+where $x$ is a vector representing the positions of points in a plane, with each element $x_i = [X_i, Y_i]$ representing the coordinates of the $i$_th point.
 
 To model the behavior in which the $i$-th agent tends to position itself at the midpoint of the segment formed by the $(i-1)$-th and $(i+1)$-th points, we define the matrix $A$ as follows:
 
